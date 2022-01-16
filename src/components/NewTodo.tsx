@@ -13,7 +13,11 @@ const NewTodo: React.FC<AddTodoItem> = (props) => {
         event.preventDefault()
         const inputData = formInputText.current!.value;
 
+        if (inputData.trim() === "") {
+            return
+        }
         props.onAddTodo(inputData);
+        formInputText.current!.value = ""
     }
 
     return (
